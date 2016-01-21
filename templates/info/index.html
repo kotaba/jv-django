@@ -1,0 +1,13 @@
+<html>
+</head></head>
+<body>
+    tttt
+    {% if user.is_authenticated %}
+    {{ user.groups.all }}
+    {% for group in user.groups.all %}
+    <a href="
+             
+             {{ group.name |cut:" "|lower}}">{{ group.name }}</a>
+    {% endfor %}
+{% endif %}</body>
+</html>

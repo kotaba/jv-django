@@ -16,8 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from SpeakUpIn import urls as speakurls
+from info.views import MainView
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^speakupin/', include(speakurls)),
+    url(r'^admin', admin.site.urls),
+    url(r'^', MainView.as_view()),
+    url(r'^speakupinbound', include(speakurls)),
+    
 ]
