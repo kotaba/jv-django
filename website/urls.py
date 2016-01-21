@@ -18,10 +18,11 @@ from django.contrib import admin
 from SpeakUpIn import urls as speakurls
 from info.views import MainView
 from django.contrib.auth.decorators import login_required
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    url(r'^admin', admin.site.urls),
-    url(r'^', MainView.as_view()),
-    url(r'^speakupinbound', include(speakurls)),
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', MainView.as_view()),
+    url(r'^speakupinbound/', include(speakurls)),
     
 ]

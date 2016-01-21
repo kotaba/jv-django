@@ -1,0 +1,46 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="static/css/maxmertkit.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="static/js/maxmertkit.js"></script>
+
+</head>
+<body>
+
+<div class="-row">
+	<div class="-col8">
+	<ul class="-menu -primary- _hovered_ _responsive_">
+	<li><a>Главная</a></li>
+	<li><a>Menu 2</a></li>
+	<li>
+		<a>Проекты <i class="-addon fa fa-caret-down"></i></a>
+		<div class="-drop">
+			<ul class="-menu _vertical_">
+				<li><a>Menu with long name <i class="-addon">⌘M</i></a></li>
+				<li>
+					<a>Menu 2 <i class="-addon fa fa-caret-right"></i></a>
+					<div class="-drop _right_">
+						<ul class="-menu _vertical_">
+							<li><a>Menu 1</a></li>
+							<li><a>Menu 2</a></li>
+							<li>
+								<a>Menu 3</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li><a>Menu 3</a></li>
+			</ul>
+		</div>
+	</li>
+</ul>
+</div>
+	<div class="-col4">Вы вошли как, RTEST1</div>
+</div>
+
+{% block content %}
+{% endblock %}
+</body>
+</html
