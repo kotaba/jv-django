@@ -15,12 +15,12 @@ class TicketResource(resources.ModelResource):
     city = fields.Field(column_name='Город')
     stop_reason = fields.Field(column_name='Причина отказа')
     place = fields.Field(column_name='Школа')
-	
+
     class Meta:
         model = Ticket
 	exclude = ('id', 'first_name', 'last_name', 'middle_name')
 	export_order = ('ticket_id', 'full_name', 'is_ticket', 'phone', 'age', 'city', 'stop_reason', 'place')
-	
+
 
     def dehydrate_ticket_id(self, ticket):
 	return ticket.id
@@ -30,20 +30,20 @@ class TicketResource(resources.ModelResource):
 
     def dehydrate_age(self, ticket):
 	return ticket.age
-    
+
     def dehydrate_city(self, ticket):
 	return ticket.city
 
     def dehydrate_place(self, ticket):
 	return ticket.place
-    
+
     def dehydrate_stop_reason(self, ticket):
 	reason = ticket.stop_reason
 	if reason:
 		return reason
 	else:
 		return 'Нет'
-    
+
 
     def dehydrate_is_ticket(self, ticket):
 	is_ticket = ticket.is_ticket
@@ -57,7 +57,7 @@ class TicketResource(resources.ModelResource):
 
 class TicketAdmin(ImportExportModelAdmin, ImportExportActionModelAdmin):
 	resource_class = TicketResource
-	list_filter = ['city', 'is_ticket', 'recall']
-	
+	list_filter = ['city', 'is_ticket', 'recall', 'owner']
+
 
 admin.site.register(Ticket, TicketAdmin)

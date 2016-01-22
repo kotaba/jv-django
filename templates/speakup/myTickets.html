@@ -1,0 +1,37 @@
+{% extends 'layouts/ticketsBase.html' %}
+{% block content %}
+<form>
+    Телефон<input type="text"><Br>
+    Город<input type="text"><Br>
+    Дата Создания<input type="date"><Br>
+    Дата Перезвона<input type="date"><Br>
+    Перезвон<input type="checkbox" name="option1""><Br>
+    <input type="submit" value="Найти">
+</form>
+<table border="1" cellpadding="5" cellspacing="5" width="100%">
+  <tr>
+    <td class="tableHead">Номер</td>
+    <td class="tableHead">ФИО</td>
+    <td class="tableHead">Телефон</td>
+    <td class="tableHead">Город</td>
+    <td class="tableHead">Возраст</td>
+    <td class="tableHead">Школа</td>
+    <td class="tableHead">Перезвон</td>
+    <td class="tableHead">Дата перезвона</td>
+    <td class="tableHead">Дата создания</td>
+  </tr>
+  <tr>
+    <td>213</td>
+    <td>Курц Курцин Туганович</td>
+    <td>0967629817</td>
+    <td>Киев</td>
+    <td>32</td>
+    <td>м. Левобережная</td>
+    <td>Да</td>
+    <td>11.11.2016 17:59</td>
+    <td>11.11.2015 15:52</td>
+  </tr>
+</table>
+
+{% endblock %}
+</html>

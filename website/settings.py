@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'SpeakUpIn',
     'import_export',
+    'info',
 ]
 
 MIDDLEWARE_CLASSES = [

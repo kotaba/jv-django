@@ -37,7 +37,9 @@
 	</li>
 </ul>
 </div>
-	<div class="-col4">Вы вошли как, RTEST1</div>
+    {% if user.is_authenticated %}
+	<div class="-col4">Вы вошли как, {{ user.username }}</div>
+    {% endif %}
 </div>
 
 {% block content %}

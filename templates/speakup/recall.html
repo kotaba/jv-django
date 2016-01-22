@@ -1,7 +1,7 @@
 {% extends 'layouts/ticketsBase.html' %}
 {% block content %}
 
-    <div class ="formHead"><b>Заявка</b></div>
+    <div class ="formHead"><b>Перезвон</b></div>
         <div class ="formContainer">
             <form>
             <p><span>Номер телефона </span> <input type="text">
@@ -9,16 +9,12 @@
             <p><span>Фамилия </span> <input type="text">
             <p><span>Отчество </span> <input type="text">
             <p><span>Город </span> <input type="text">
-            <p><span>Возраст </span> <input type="text">
-            <p><span>Место </span>
-                <select>
-                      <option>м. Левобережная</option>
-                      <option>м. Оболонская</option>
-                </select>
+            <p><span>Дата</span> <input type="datetime-local">
            <p><input type="submit" value="Регистрация">
             </form>
 
         </div>
-    </div
+    </div>
 
 {% endblock %}
+</html>

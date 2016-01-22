@@ -1,0 +1,20 @@
+<html>
+</head>
+<link rel="stylesheet" href="/static/css/ticket.css">
+</head>
+<body>
+    <div class="mainContainer">
+        <img src ="/static/img/logo.gif">
+        <span class="title">New ticket</span>
+        <div class ="userInfo"><b>{{ user.first_name }} {{ user.last_name }}</b></div>
+        <hr>
+
+        <a class="ticketMenu" href="/speakupinbound">Регистрация</a>
+        <a class="ticketMenu" href="/speakupinbound/recall">Recall</a>
+        <a class="ticketMenu" href="/speakupinbound/tickets">Мои</a>
+        <hr>
+        {% block content %}
+
+        {% endblock %}
+        </body>
+</html>

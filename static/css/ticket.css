@@ -1,0 +1,49 @@
+.mainContainer {
+    border:1px solid black;
+    min-height: 600px;
+}
+
+.title {
+    font: bold 110% serif;
+    font-size: 20pt;
+}
+
+.userInfo {
+    position: absolute;
+    right: -130px;
+    top: 35px;
+    width: 300px;
+    padding: 10px;
+}
+
+.ticketMenu {
+    color: black;
+    font: 110% serif;
+    padding: 10px;
+
+}
+
+.formHead {
+    background-color: rgb(140, 172, 187);
+    color: white;
+    width: 400px;
+}
+
+.formContainer {
+    width: 398px;
+    border:1px solid rgb(140, 172, 187);
+}
+
+.ticketText {
+
+}
+
+input[type="text"]:focus {
+  background-color: aliceblue;
+}
+
+.tableHead {
+    font-family: Verdana, Tahoma, 'Arial Narrow', sans-serif;
+    color: white;
+    background-color: #8CACBB;
+}
