@@ -32,6 +32,9 @@
 .formContainer {
     width: 398px;
     border:1px solid rgb(140, 172, 187);
+    display: block;
+    position:relative
+}
 }
 
 .ticketText {
@@ -46,4 +49,8 @@ input[type="text"]:focus {
     font-family: Verdana, Tahoma, 'Arial Narrow', sans-serif;
     color: white;
     background-color: #8CACBB;
+}
+
+.formError {
+    color: red;
 }

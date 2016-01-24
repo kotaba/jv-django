@@ -1,13 +1,41 @@
 {% extends 'layouts/ticketsBase.html' %}
 {% block content %}
-<form>
-    Телефон<input type="text"><Br>
-    Город<input type="text"><Br>
-    Дата Создания<input type="date"><Br>
-    Дата Перезвона<input type="date"><Br>
-    Перезвон<input type="checkbox" name="option1""><Br>
-    <input type="submit" value="Найти">
+<form id="searchForm" name="searchForm">
+    Телефон<input id="phone" type="text"><Br>
+    Город<input id="formCity" type="text"><Br>
+    Начало<input id="StartDatePicker" type="date" value="2016-01-01">
+    Конец<input id="EndDatePicker" type="date">
+    <button id="searchButton" type='button'>Найти</button>
 </form>
+        <script>
+        var  currentDate = new Date()
+        var tommorow = currentDate.setDate(currentDate.getDate() + 1);
+        document.getElementById('EndDatePicker').valueAsDate = tommorow;
+
+            $('#searchButton').click(function(){
+
+            creationDateStart = $('#StartDatePicker').val();
+            creationDateEnd = $('#EndDatePicker').val();
+            var searchStr = '?creation_date__gte=' + creationDateStart + '&creation_date__lt=' + creationDateEnd;
+            formCity = $('#formCity').val();
+            formPhone = $('#phone').val();
+
+
+            if(formPhone != '') {
+                searchStr = searchStr+'&phone='+formPhone
+            }
+
+            if(formCity != '') {
+                searchStr = searchStr+'&city='+formCity
+            }
+             window.location.href = "/speakupinbound/find/" + searchStr ;
+
+
+            });
+
+        </script>
+
+    Найдено записей: <b>{{ ticket_list.count }}</b>
 <table border="1" cellpadding="5" cellspacing="5" width="100%">
   <tr>
     <td class="tableHead">Номер</td>
@@ -16,21 +44,22 @@
     <td class="tableHead">Город</td>
     <td class="tableHead">Возраст</td>
     <td class="tableHead">Школа</td>
-    <td class="tableHead">Перезвон</td>
-    <td class="tableHead">Дата перезвона</td>
     <td class="tableHead">Дата создания</td>
   </tr>
+
+        {% for ticket in ticket_list %}
   <tr>
-    <td>213</td>
-    <td>Курц Курцин Туганович</td>
-    <td>0967629817</td>
-    <td>Киев</td>
-    <td>32</td>
-    <td>м. Левобережная</td>
-    <td>Да</td>
-    <td>11.11.2016 17:59</td>
-    <td>11.11.2015 15:52</td>
+
+    <td>{{ ticket.id }}</td>
+    <td>{{ ticket.first_name }} {{ ticket.last_name }} {{ ticket.middle_name }}</td>
+    <td>{{ ticket.phone }}</td>
+    <td>{{ ticket.city }}</td>
+    <td>{{ ticket.age }}</td>
+    <td>{{ ticket.place }}</td>
+    <td>{{ ticket.creation_date }}</td>
   </tr>
+
+        {% endfor %}
 </table>
 
 {% endblock %}

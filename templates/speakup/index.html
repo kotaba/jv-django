@@ -1,24 +1,35 @@
 {% extends 'layouts/ticketsBase.html' %}
 {% block content %}
+    <img width="30%" height="12%" src="https://cherylmckay.files.wordpress.com/2012/09/speak-up-logo.png">
+    <div class ="formHead"><b>Заявка на консультацию</b></div>
+        <div id="formTicketContainer" class ="formContainer">
 
-    <div class ="formHead"><b>Заявка</b></div>
-        <div class ="formContainer">
-            <form>
-            <p><span>Номер телефона </span> <input type="text">
-            <p><span>Имя </span> <input type="text">
-            <p><span>Фамилия </span> <input type="text">
-            <p><span>Отчество </span> <input type="text">
-            <p><span>Город </span> <input type="text">
-            <p><span>Возраст </span> <input type="text">
-            <p><span>Место </span>
-                <select>
-                      <option>м. Левобережная</option>
-                      <option>м. Оболонская</option>
-                </select>
-           <p><input type="submit" value="Регистрация">
+
+
+            <form method="POST" action="/speakupinbound/">
+                {% csrf_token %}
+            <div>
+                {{ form.phone }} {{ form.phone.label }}<span style="color:red;">*</span><p>
+                <p class="formError">{{ form.phone.errors }}</p>
+             {{ form.first_name }} {{ form.first_name.label }}<span style="color:red;">*</span><p>
+                <p class="formError">{{ form.first_name.errors }}</p>
+             {{ form.last_name }} {{ form.last_name.label }}<p>
+             {{ form.middle_name }} {{ form.middle_name.label }}<p>
+             {{ form.city }} {{ form.city.label }}<span style="color:red;">*</span><p>
+                <p class="formError">{{ form.city.errors }}</p>
+             {{ form.age }} {{ form.age.label }}<span style="color:red;">*</span><p>
+                <p class="formError">{{ form.age.errors }}</p>
+             {{ form.school }} {{ form.school.label }}<span style="color:red;">*</span><p>
+                <input type="submit" value="Регистрация">
+
+                </div>
             </form>
 
         </div>
-    </div
+</div>
+
+<script>
+
+</script>
 
 {% endblock %}

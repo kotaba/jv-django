@@ -24,6 +24,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', MainView.as_view()),
     url(r'^login/', 'info.views.login', name='login'),
+    url(r'^logout/', 'info.views.logout', name='logout'),
     url(r'^speakupinbound/', include(speakurls)),
-    
+
 ]
+
+admin.site.site_header = 'JV Call Center'

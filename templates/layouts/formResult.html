@@ -1,0 +1,91 @@
+<html>
+</head>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<style>
+
+
+
+body {
+    background-color: gray;
+}
+
+    .ui-dialog {
+  top:50% !important;
+  margin-top:-200px !important;
+  left:50% !important;
+  margin-left:-360px !important
+}
+
+.formErorrs {
+    font-size: 11pt;
+}
+
+
+</style>
+</head>
+<body>
+
+
+    <script>
+$(function() {
+    $( "#dialog" ).dialog({width: 700,
+                           height:'auto',
+                           close: function( event, ui ) {window.location.href = "/speakupinbound/"
+
+                                                        }});
+  });
+        function toHead() {
+            window.location.href = "/speakupinbound/";
+        }
+
+        $('#dialog').live('pagehide',function(event) {
+          alert('pagehide');
+
+      });
+
+  </script>
+
+<div id="dialog" title="Сообщение">
+    {% if formError %}
+        <p><center><img src="http://www.karmacabins.com/reservelogic/project/styles/images/warning-icon.png">Ошибка при создании заявки</center></p>
+
+    <div class = "formErrors">
+    {% if form.phone.errors %}
+    {% for error in form.phone.errors %}
+    <center><p>Телефон - {{ error }}</p></center>
+    {% endfor %}
+    {% endif %}
+
+    {% if form.first_name.errors %}
+    {% for error in form.first_name.errors %}
+    <center><p>Имя - {{ error }}</p></center>
+    {% endfor %}
+    {% endif %}
+
+    {% if form.city.errors %}
+    {% for error in form.city.errors %}
+    <center><p>Город - {{ error }}</p></center>
+    {% endfor %}
+    {% endif %}
+
+    {% if form.age.errors %}
+    {% for error in form.age.errors %}
+    <center><p>Возраст - {{ error }}</p></center>
+    {% endfor %}
+    {% endif %}
+    </div>
+
+    {% else %}
+  <p><center><img src="http://www.karmacabins.com/reservelogic/project/styles/images/success-icon.png">
+      Номер заявки {{ ticket_id }} .</center></p>
+    {% endif %}
+
+    <p><center><button onclick="toHead()">Ок</button></center></p>
+</div>
+
+
+</body>
+
+</html>

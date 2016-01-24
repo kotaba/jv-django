@@ -35,6 +35,19 @@ class Ticket(models.Model):
 
     class Meta:
         app_label = 'SpeakUpIn'
+        permissions = (
+            ("view_project", "Can see project"),
+            ("add_ticket", "Can add tickets"),
+        )
+
+    def getFullName(self):
+        return "%s %s %s" % (self.last_name, self.first_name, self.middle_name)
+    getFullName.admin_order_field = 'last_name'
+    getFullName.short_description = "ФИО"
 
     def __unicode__(self):
-        return "%s, %s, %s, %s" % (self.phone, self.city, self.first_name, self.last_name)
+        return "Номер телефона: %s, ФИО: %s %s %s, %s" % (self.phone,
+                                                      self.last_name,
+                                                      self.first_name,
+                                                      self.middle_name,
+                                                      self.city)

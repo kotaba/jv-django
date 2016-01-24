@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="static/css/maxmertkit.css">
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="static/js/maxmertkit.js"></script>
+    <script src="static/js/maxmertkit.js"></script>
 
 </head>
 <body>
@@ -38,11 +38,11 @@
 </ul>
 </div>
     {% if user.is_authenticated %}
-	<div class="-col4">Вы вошли как, {{ user.username }}</div>
+    <div class="-col4">Вы, {{ user.first_name }} {{ user.last_name }}, <a href="/logout/">Выход</a></div>
     {% endif %}
 </div>
 
 {% block content %}
 {% endblock %}
 </body>
-</html
+</html>
