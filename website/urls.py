@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from SpeakUpIn import urls as speakurls
+from ajax import urls as ajaxurls
 from info.views import MainView
 from django.contrib.auth.decorators import login_required
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -26,6 +27,7 @@ urlpatterns = [
     url(r'^login/', 'info.views.login', name='login'),
     url(r'^logout/', 'info.views.logout', name='logout'),
     url(r'^speakupinbound/', include(speakurls)),
+    url(r'^ajax/', include(ajaxurls)),
 
 ]
 

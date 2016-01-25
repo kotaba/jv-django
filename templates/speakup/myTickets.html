@@ -1,4 +1,5 @@
 {% extends 'layouts/ticketsBase.html' %}
+
 {% block content %}
 <form id="searchForm" name="searchForm">
     Телефон<input id="phone" type="text"><Br>
@@ -35,8 +36,22 @@
 
         </script>
 
-    Найдено записей: <b>{{ ticket_list.count }}</b>
-<table border="1" cellpadding="5" cellspacing="5" width="100%">
+    <script>
+
+        $.getJSON( "/ajax/personal/", function( data ) {
+  var items = [];
+  $.each( data, function( key, val ) {
+    console.log(key, val)
+  }
+        )
+        }
+  );
+
+    </script>
+
+    Всего записей: <b>{{ ticket_list.count }}</b> <a id="ss" href="#">Обновить<i id="refreshAjaxTable" class="fa fa-refresh"></i></a>
+<table id="example" border="1" cellpadding="5" cellspacing="5" width="100%">
+    <thead>
   <tr>
     <td class="tableHead">Номер</td>
     <td class="tableHead">ФИО</td>
@@ -46,9 +61,10 @@
     <td class="tableHead">Школа</td>
     <td class="tableHead">Дата создания</td>
   </tr>
+        </thead>
 
         {% for ticket in ticket_list %}
-  <tr>
+  <tr id="tickets">
 
     <td>{{ ticket.id }}</td>
     <td>{{ ticket.first_name }} {{ ticket.last_name }} {{ ticket.middle_name }}</td>

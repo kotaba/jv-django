@@ -26,11 +26,11 @@
 .formHead {
     background-color: rgb(140, 172, 187);
     color: white;
-    width: 400px;
+    width: 502px;
 }
 
 .formContainer {
-    width: 398px;
+    width: 500px;
     border:1px solid rgb(140, 172, 187);
     display: block;
     position:relative
@@ -47,10 +47,15 @@ input[type="text"]:focus {
 
 .tableHead {
     font-family: Verdana, Tahoma, 'Arial Narrow', sans-serif;
-    color: white;
+    color: black;
     background-color: #8CACBB;
 }
 
 .formError {
     color: red;
+}
+
+.recallList {
+ margin-top: -300px;
+ margin-left: 450px;
 }

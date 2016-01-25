@@ -1,3 +1,4 @@
+#*-* coding: utf-8 *-*
 from django.views.generic import TemplateView, ListView, View
 from django.shortcuts import get_object_or_404, render, redirect
 from SpeakUpIn.models import Ticket
@@ -25,13 +26,20 @@ class IndexView(View):
         form = self.form_class(request.POST)
         if form.is_valid():
             # <process form cleaned data>
+            SCHOOLS = (
+           ('1',("м. Левобережная - ул. Луначарского, 4 6-й этаж")),
+           ('2',("м. Университет - ул. М.Коцюбинского, 14 1-й этаж")),
+           ('3',("м.Житомирская - пр. Победы 13б, 3-й этаж")),
+            ('4',("м.Контрактовая Площадь - ул. Спасская 5, 2-й этаж")),
+           )
+            place = form.cleaned_data["school"]
             ticket = Ticket.objects.create(phone=form.cleaned_data['phone'],
                                            first_name=form.cleaned_data['first_name'],
                                            last_name=form.cleaned_data['last_name'],
                                            middle_name=form.cleaned_data['middle_name'],
                                            city=form.cleaned_data['city'],
                                            age=form.cleaned_data['age'],
-                                           place=form.cleaned_data['school'],
+                                           place=place,
                                            is_ticket=True,
                                            owner=self.request.user.last_name,
                                            creation_date=datetime.now(),

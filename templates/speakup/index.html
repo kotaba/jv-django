@@ -1,6 +1,6 @@
 {% extends 'layouts/ticketsBase.html' %}
 {% block content %}
-    <img width="30%" height="12%" src="https://cherylmckay.files.wordpress.com/2012/09/speak-up-logo.png">
+    <!--<img width="30%" height="12%" src="https://cherylmckay.files.wordpress.com/2012/09/speak-up-logo.png">-->
     <div class ="formHead"><b>Заявка на консультацию</b></div>
         <div id="formTicketContainer" class ="formContainer">
 
@@ -8,7 +8,7 @@
 
             <form method="POST" action="/speakupinbound/">
                 {% csrf_token %}
-            <div>
+            <div><p>
                 {{ form.phone }} {{ form.phone.label }}<span style="color:red;">*</span><p>
                 <p class="formError">{{ form.phone.errors }}</p>
              {{ form.first_name }} {{ form.first_name.label }}<span style="color:red;">*</span><p>
@@ -19,7 +19,24 @@
                 <p class="formError">{{ form.city.errors }}</p>
              {{ form.age }} {{ form.age.label }}<span style="color:red;">*</span><p>
                 <p class="formError">{{ form.age.errors }}</p>
-             {{ form.school }} {{ form.school.label }}<span style="color:red;">*</span><p>
+             {{ form.school.label }}
+                <p>
+                <input id="id_school" name="school" class="awesomplete" list="selectSchool" />
+                    <datalist id="selectSchool">
+	                <option>г.Киев Метро Житомирская - проспект Победы, 136, 3-й этаж.ТЦ VMB.</option>
+	                    <option>г.Киев Метро Контрактовая площадь - ул. Спасская, 5, 2-й этаж</option>
+	                        <option>г.Киев Метро Печерская - бул. Леси Украинки 26, 9 этаж.</option>
+	                            <option>г.Киев Метро Позняки ул. А.Мишуги, 8 2 эт.</option>
+	                                <option>г.Киев Метро Голосеевская – ул. Васильковская, 14. БЦ Стенд, 1 этаж.</option>
+	                                  <option>г.Киев Соломенская площадь -  БЦ Нест, ул. Урицкого, 45, 1-й этаж</option>
+	                                        <option>г.Киев Метро Минская  - Dreamtown,  Оболонский проспект, 1-Б</option>
+                                            <option>г. Одесса ул. Ришельевская 14, 5-й этаж</option>
+                                            <option>г.Киев Метро Троещина - ул. Маяковского, 68, 2 этаж</option>
+                                            <option>г.Киев Метро Университет - ул. Михаила Коцюбинского 14</option>
+
+
+
+                                          </datalist>
                 <input type="submit" value="Регистрация">
 
                 </div>
