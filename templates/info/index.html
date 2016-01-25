@@ -2,13 +2,7 @@
 <body>
 {% block content %}
     {% if user.is_authenticated %}
-    <div class="-row">
-	<div class="-col8">-col8</div>
-	<div class="-col4">
-    <button class="-btn-ghost -primary-">Projects</button>
 
-    <div id="scrollspy-target" style="height: 200px; overflow-y: scroll">
-	<div style="height: auto">
 
 		{% for group in user.groups.all %}
         {% if group.is_project %}

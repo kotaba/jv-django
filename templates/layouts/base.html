@@ -9,40 +9,39 @@
 </head>
 <body>
 
-<div class="-row">
-	<div class="-col8">
-	<ul class="-menu -primary- _hovered_ _responsive_">
-	<li><a>Главная</a></li>
-	<li><a>Menu 2</a></li>
-	<li>
-		<a>Проекты <i class="-addon fa fa-caret-down"></i></a>
-		<div class="-drop">
-			<ul class="-menu _vertical_">
-				<li><a>Menu with long name <i class="-addon">⌘M</i></a></li>
-				<li>
-					<a>Menu 2 <i class="-addon fa fa-caret-right"></i></a>
-					<div class="-drop _right_">
-						<ul class="-menu _vertical_">
-							<li><a>Menu 1</a></li>
-							<li><a>Menu 2</a></li>
-							<li>
-								<a>Menu 3</a>
-							</li>
-						</ul>
-					</div>
-				</li>
-				<li><a>Menu 3</a></li>
-			</ul>
-		</div>
-	</li>
-</ul>
+ <div class="-navbar -row">
+
+	<!-- Header is always visible. Dont set any visible/hidden modifiers. -->
+	<div class="-col3">
+		<div class="-header">JV</div>
+
+		<!-- -navbar-toggle is absolute positioned element. Add it to the column with header. We want to show it only on phones and tablets. Don't forget to add javascript code to show menu on click. -->
+		<a class="-navbar-toggle _hidden-desktops_ _hidden-large-desktops_ -btn"><i class="fa fa-th-list"></i></a>
+
+	</div>
+
+	<!-- We don't want to see this menu on tables and phones.-->
+	<div class="-col5 _hidden-phones_ _hidden-tablets_">
+
+        <center>
+            {% if user.is_authenticated %}
+            <b>{{ user.first_name }} {{ user.last_name }}</b>
+            <p><a href="/logout/">Выход</a>
+            {% endif %}
+
+        </center>
+
+	</div>
+
+
+
 </div>
-    {% if user.is_authenticated %}
-    <div class="-col4">Вы, {{ user.first_name }} {{ user.last_name }}, <a href="/logout/">Выход</a></div>
-    {% endif %}
+    <center>
+    {% block content %}
+    {% endblock %}
+    </center>
+    <hr>
 </div>
 
-{% block content %}
-{% endblock %}
 </body>
 </html>
